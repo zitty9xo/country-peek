@@ -8,12 +8,9 @@ function Home() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  // Fetch countries with debouncing
   useEffect(() => {
-    if (!query) {
-      setCountries([])
-      setError(null)
-      return
-    }
+    if (!query) return
 
     const timer = setTimeout(() => {
       setLoading(true)
